@@ -131,7 +131,12 @@ class Dev(Configuration):
 
     STATICFILES_DIRS = [
             BASE_DIR / 'frontend/build',
+            BASE_DIR / 'static',
     ]
+
+    STATICFILES_STORAGES = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+    STATIC_ROOT = BASE_DIR / 'static_prod_test'
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
