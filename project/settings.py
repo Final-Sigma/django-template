@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os.path
+
 from pathlib import Path
 from configurations import Configuration, values
 
@@ -48,6 +48,8 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'webpack_boilerplate',
+        'crispy_forms',
+        'crispy_bulma',
         ]
 
     MIDDLEWARE = [
@@ -84,6 +86,7 @@ class Dev(Configuration):
 
     # Database
     # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+    # Add DJANGO_DATABASE_URL to environment variables in production.
 
     DATABASES = values.DatabaseURLValue(
         f'sqlite:///{BASE_DIR}/db.sqlite3', environ_prefix='DJANGO'
@@ -144,6 +147,10 @@ class Dev(Configuration):
 
     # Django Debug Toolbar
     INTERNAL_IPS = ['127.0.0.1']
+
+    # Crispy Forms
+    CRISPY_ALLOWED_TEMPLATE_PACKS = ('bulma',)
+    CRISPY_TEMPLATE_PACK = 'bulma'
 
 class Prod(Dev):
     DEBUG = False

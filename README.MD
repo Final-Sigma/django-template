@@ -15,6 +15,9 @@ A django project with all of the go-to configurations for a Final Sigma applicat
 - [django-configurations](https://pypi.org/project/django-configurations/)
 - [dj-database-url](https://pypi.org/project/dj-database-url/)
 - [django-debug-toolbar](https://pypi.org/project/django-debug-toolbar/)
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
+- [crispy-bulma](https://pypi.org/project/django-crispy-forms/)
+
 
 ## Workflow Reference
 

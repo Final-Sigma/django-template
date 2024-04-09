@@ -11,7 +11,7 @@
         <title>{% block title %}Final Sigma{% endblock %}</title>
         <meta name="description" content="{% block meta_description %}A website by Final Sigma{% endblock %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% stylesheet_pack 'app' %}
+        {% stylesheet_pack 'app' %}{# imports SASS through python-webpack-boilerplate #}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -19,6 +19,6 @@
         <![endif]-->
         {% block content %}{% endblock %}
         
-        {% javascript_pack 'app' %}
+        {% javascript_pack 'app' %}{# imports JS through python-webpack-boilerplate #}
     </body>
 </html>
