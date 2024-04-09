@@ -13,6 +13,7 @@ A django project with all of the go-to configurations for a Final Sigma applicat
 - [django](https://pypi.org/project/Django/)
 - [python-webpack-boilerplate](https://pypi.org/project/python-webpack-boilerplate/)
 - [django-configurations](https://pypi.org/project/django-configurations/)
+- [dj-database-url](https://pypi.org/project/dj-database-url/)
 
 ## Workflow Reference
 
