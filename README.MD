@@ -2,7 +2,21 @@
 
 A django project with all of the go-to configurations for a Final Sigma application.
 
-## Styles
+## Tech Stack:
+
+- Bulma (SASS)
+- Hotwire (JS)
+- Stimulus (JS)
+
+### PyPI Packages
+
+- [django](https://pypi.org/project/Django/)
+- [python-webpack-boilerplate](https://pypi.org/project/python-webpack-boilerplate/)
+- [django-configurations](https://pypi.org/project/django-configurations/)
+
+## Workflow Reference
+
+### Styles
 
 To customize style, go to `frontend/src/styles/index.scss` and put your styles inside the `@use "bulma/sass" with ();` list:
 
@@ -13,18 +27,15 @@ To customize style, go to `frontend/src/styles/index.scss` and put your styles i
 )
 ```
 
-## JavaScript
+### JavaScript
 
 Use standard `npm` commands from the project root directory.
 
-### Hotwire & Stimulus
+#### Hotwire & Stimulus
 
 Imported in `frontend/src/application/app.js`.
 
 Stimulus controllers to be placed in `frontend/src/application/controllers/` directory.
-
-
-
 
 ## Packages to Configure For
 
