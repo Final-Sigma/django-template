@@ -1,0 +1,8 @@
+@use "bulma/sass" with (
+  // place custom variable here.
+  $primary: rgb(26, 197, 40),
+  $danger: red,
+);
+
+// import fonts etc., after declaring Bulma rules.
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
