@@ -44,16 +44,16 @@ Stimulus controllers to be placed in `frontend/src/application/controllers/` dir
 
 ## Packages to Configure For
 
-- [ ] python-webpack-boilerplate (w/ Turbo, Stimulus, & Bulma)
-- [ ] django-configurations
-- [ ] dj-database-url (which is built-into django-configurations)
-- [ ] django-debug-toolbar
-- [ ] django-crispy-forms and crispy-bulma
+- [x] python-webpack-boilerplate (w/ Turbo, Stimulus, & Bulma)
+- [x] django-configurations
+- [x] dj-database-url (which is built-into django-configurations)
+- [x] django-debug-toolbar
+- [x] django-crispy-forms and crispy-bulma
 - [ ] django-allauth
 
 ## Setup to Complete
 
-- [ ] /templates directory w/ base.html (imports from webpack-boilerplate)
+- [x] /templates directory w/ base.html (imports from webpack-boilerplate)
 - [ ] inital example app with the following:
   - [ ] sample landing page
   - [ ] sample navigation bar (logo, links, dropdowns, and hamburger using stimulus)
