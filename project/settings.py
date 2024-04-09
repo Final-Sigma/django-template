@@ -50,7 +50,7 @@ class Dev(Configuration):
         'webpack_boilerplate',
         'crispy_forms',
         'crispy_bulma',
-        'project_actmin.apps.ProjectAdminConfig'
+        'project_admin.apps.ProjectAdminConfig'
         ]
 
     MIDDLEWARE = [
