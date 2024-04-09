@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.views.generic import TemplateView
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='base.html')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.insert(
+        0,
+        path('__debug__/', include(debug_toolbar.urls))
+    )

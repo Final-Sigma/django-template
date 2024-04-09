@@ -30,7 +30,7 @@ class Dev(Configuration):
     #'django-insecure-0r#db4pz99+st9-*#*qnsb-mpw9xhcuz9q@i@#iik$&$(uzsz1'
 
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
+    DEBUG = values.BooleanValue(True)
 
     # List ALLOWED_HOSTS in environment var named DJANGO_ALLOWED_HOSTS
     # "www.example.com,www.demo.com,www.whatever.org"
@@ -40,6 +40,7 @@ class Dev(Configuration):
     # Application definition
 
     INSTALLED_APPS = [
+        'debug_toolbar',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -50,6 +51,7 @@ class Dev(Configuration):
         ]
 
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -139,6 +141,9 @@ class Dev(Configuration):
     WEBPACK_LOADER = {
             'MANIFEST_FILE': BASE_DIR / 'frontend/build/manifest.json',
     }
+
+    # Django Debug Toolbar
+    INTERNAL_IPS = ['127.0.0.1']
 
 class Prod(Dev):
     DEBUG = False
