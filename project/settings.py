@@ -47,7 +47,6 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'webpack_boilerplate',
         'crispy_forms',
         'crispy_bulma',
         'project_admin.apps.ProjectAdminConfig'

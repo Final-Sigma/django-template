@@ -20,7 +20,6 @@ mdurl==0.1.2
 Pygments==2.17.2
 python-dateutil==2.9.0.post0
 python-slugify==8.0.4
-python-webpack-boilerplate==1.0.2
 PyYAML==6.0.1
 requests==2.31.0
 rich==13.7.1
