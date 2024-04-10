@@ -1,4 +1,4 @@
-{% load webpack_loader %}
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -11,14 +11,64 @@
         <title>{% block title %}Final Sigma{% endblock %}</title>
         <meta name="description" content="{% block meta_description %}A website by Final Sigma{% endblock %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% stylesheet_pack 'app' %}{# imports SASS through python-webpack-boilerplate #}
+        <link rel="stylesheet" href="{% static 'bulma/css/bulma.css' %}">
     </head>
     <body>
+        
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        {% block content %}{% endblock %}
+        <script defer type="module" src="{% static 'index.js' %}"></script>
+        <script defer type="module" src="{% static 'controllers/navbar-burger_controller.js' %}"></script>
+
+        {% block header %}{% include '_header.html' %}{% endblock %}
+
+        {% block body %}
+
+            {% block hero %}
+            {# Hero section: https://bulma.io/documentation/layout/hero/ #}
+            <section class="hero is-primary">
+                <div class="hero-body">
+                <p class="title">Primary hero</p>
+                <p class="subtitle">Primary subtitle</p>
+                </div>
+            </section>
+            {% endblock %}
+
+            {% block content %}
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">Section</h1>
+                    <h2 class="subtitle">
+                    A simple container to divide your page into <strong>sections</strong>, like
+                    the one you're currently reading.
+                    </h2>
+                    <div class="content">
+                        <p>
+                            You might consider writing the main content of your page in this first
+                            section using a container. Using .container will limit the width of the
+                            text, making it easier to read (<span class="is-color-info">in theory!</span>).
+                        </p>
+                    </div>
+                </div>
+              </section>
+
+              <section class="section is-medium">
+                <h1 class="title">Medium section</h1>
+                <h2 class="subtitle">
+                  A simple container to divide your page into <strong>sections</strong>, like
+                  the one you're currently reading.
+                </h2>
+                <div class="content">
+                    <p>This would be a good place to put a newsletter link or something.</p>
+                    <p>There are no rules. Do what you want.</p>
+                </div>
+              </section>
+            {% endblock %}
+
+        {% endblock %}
+
+        {% block footer %}{% include '_footer.html' %}{% endblock %}
         
-        {% javascript_pack 'app' %}{# imports JS through python-webpack-boilerplate #}
     </body>
 </html>

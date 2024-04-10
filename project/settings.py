@@ -138,6 +138,12 @@ class Dev(Configuration):
 
     STATIC_ROOT = BASE_DIR / 'static_prod_test'
 
+    STATICFILES_FINDERS = [
+        # The two default Finders, since this will overwrite the default.
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    ]
+
     # Default primary key field type
     # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -146,16 +152,13 @@ class Dev(Configuration):
     # python-webpack-boilerplate Manifest File location.
     # https://python-webpack-boilerplate.readthedocs.io/en/latest/setup_with_django/
 
-    WEBPACK_LOADER = {
-            'MANIFEST_FILE': BASE_DIR / 'frontend/build/manifest.json',
-    }
-
     # Django Debug Toolbar
     INTERNAL_IPS = ['127.0.0.1']
 
     # Crispy Forms
     CRISPY_ALLOWED_TEMPLATE_PACKS = ('bulma',)
     CRISPY_TEMPLATE_PACK = 'bulma'
+
 
 class Prod(Dev):
     DEBUG = False
