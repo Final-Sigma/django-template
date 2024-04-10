@@ -154,3 +154,11 @@ yarn.lock
 .yarnclean
 .vscode
 .idea
+--watch
+
+# webpack output
+/static/output.js
+
+# sass output
+/static/output.css
+/static/output.css.map

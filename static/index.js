@@ -1,12 +1,22 @@
 
-import { Application } from 'https://cdn.skypack.dev/@hotwired/stimulus';
-import NavbarBurgerController from './controllers/navbar-burger_controller.js';
+import * as Turbo from '@hotwired/turbo';
+
+// import { Application } from 'https://cdn.skypack.dev/@hotwired/stimulus';
+import { Application } from '@hotwired/stimulus';
+import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers';
+
+// import NavbarBurgerController from './controllers/navbar-burger_controller.js';
 // import * as Turbo from 'https://cdn.skypack.dev/@hotwired/turbo';
 
 
 
 window.Stimulus = Application.start();
-Stimulus.register("navbar-burger", NavbarBurgerController)
+const context = require.context('./controllers', true, /\.js$/);
+Stimulus.load(definitionsFromContext(context));
+
+console.log('Everything loaded just fine!')
+
+// Stimulus.register("navbar-burger", NavbarBurgerController)
 
 // @hotwired/Stimulus usage:
 

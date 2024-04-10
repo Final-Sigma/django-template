@@ -6,13 +6,21 @@
   "repository": "git@github.com:Final-Sigma/django-template.git",
   "author": "Devin Mork <devin.mork@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "@hotwired/turbo": "^8.0.4",
     "bulma": "^1.0.0",
-    "sass": "^1.74.1"
+    "sass": "^1.74.1",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "build-bulma": "sass --load-path=node_modules static/main.scss static/output.css",
-    "start": "npm run build-bulma -- --watch"
+    "build-css": "sass --load-path=node_modules static/main.scss static/output.css",
+    "build-js": "webpack --config webpack.config.js",
+    "django-server": "./manage.py runserver",
+    "start": "yarn run build-css --watch & yarn run build-js --watch & yarn run django-server",
+    "build": "yarn run build-css & yarn run build-js"
   }
 }

@@ -1,4 +1,4 @@
-import { Controller } from 'https://cdn.skypack.dev/@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
     static targets = [ 'burger', 'menu' ]
