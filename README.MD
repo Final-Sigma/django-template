@@ -22,7 +22,7 @@ A django project with all of the go-to configurations for a Final Sigma applicat
 
 ### Styles
 
-To customize style, go to `static/main.css` and put your styles inside the `@use "path/to/bulma/sass" with ();` list:
+To customize style, go to `static/main.scss` and put your styles inside the `@use "path/to/bulma/sass" with ();` list:
 
 ```sass
 @use "path/to/bulma/sass" with (
@@ -33,7 +33,13 @@ To customize style, go to `static/main.css` and put your styles inside the `@use
 
 ### JavaScript
 
-Use standard `npm` commands from the project root directory.
+Use standard `yarn` commands from the project root directory.
+
+- `yarn run build-css`: Updates stylesheets.
+- `yarn run build-js`: Updates javascript.
+- `yarn run init`: Installs dependencies and runs build scripts.
+- `yarn run start`: Watches stylesheets and javascript for changes and runs django dev server.
+- `yarn run build`: Manually updates both stylesheets & css.
 
 #### Hotwire & Stimulus
 
