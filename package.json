@@ -22,6 +22,6 @@
     "build-js": "webpack --config webpack.config.js",
     "django-server": "./manage.py runserver",
     "start": "yarn run build-css --watch & yarn run build-js --watch & yarn run django-server",
-    "build": "yarn run build-css & yarn run build-js"
+    "build": "yarn run build-css && yarn run build-js"
   }
 }

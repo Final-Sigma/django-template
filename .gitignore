@@ -157,8 +157,8 @@ yarn.lock
 --watch
 
 # webpack output
-/static/output.js
+/static/app.js
 
 # sass output
-/static/output.css
-/static/output.css.map
+/static/app.css
+/static/app.css.map
