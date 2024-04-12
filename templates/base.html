@@ -26,44 +26,11 @@
         {% block body %}
 
             {% block hero %}
-            {# Hero section: https://bulma.io/documentation/layout/hero/ #}
-            <section class="hero is-primary">
-                <div class="hero-body">
-                <p class="title">Primary hero</p>
-                <p class="subtitle">Primary subtitle</p>
-                </div>
-            </section>
+                {% include '_example_hero.html' %}
             {% endblock %}
 
             {% block content %}
-            <section class="section">
-                <div class="container">
-                    <h1 class="title">Section</h1>
-                    <h2 class="subtitle">
-                    A simple container to divide your page into <strong>sections</strong>, like
-                    the one you're currently reading.
-                    </h2>
-                    <div class="content">
-                        <p>
-                            You might consider writing the main content of your page in this first
-                            section using a container. Using .container will limit the width of the
-                            text, making it easier to read (<span class="is-color-info">in theory!</span>).
-                        </p>
-                    </div>
-                </div>
-              </section>
-
-              <section class="section is-medium">
-                <h1 class="title">Medium section</h1>
-                <h2 class="subtitle">
-                  A simple container to divide your page into <strong>sections</strong>, like
-                  the one you're currently reading.
-                </h2>
-                <div class="content">
-                    <p>This would be a good place to put a newsletter link or something.</p>
-                    <p>There are no rules. Do what you want.</p>
-                </div>
-              </section>
+                {% include '_example_content.html' %}
             {% endblock %}
 
         {% endblock %}
