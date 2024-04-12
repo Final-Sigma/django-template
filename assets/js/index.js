@@ -1,15 +1,10 @@
-
 import * as Turbo from '@hotwired/turbo';
 
-// import { Application } from 'https://cdn.skypack.dev/@hotwired/stimulus';
 import { Application } from '@hotwired/stimulus';
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers';
 
-// import NavbarBurgerController from './controllers/navbar-burger_controller.js';
-// import * as Turbo from 'https://cdn.skypack.dev/@hotwired/turbo';
-
-
-
+// Launch Stimulus and automatically import controllers in the
+// ./controllers/ directory.
 window.Stimulus = Application.start();
 const context = require.context('./controllers', true, /\.js$/);
 Stimulus.load(definitionsFromContext(context));
