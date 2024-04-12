@@ -1,0 +1,18 @@
+{% extends 'example_blog/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<section class="section">
+    <div class="columns">
+        <div class="column is-6 is-offset-3">
+            <form>
+            {{ form|crispy }}
+            </form>
+            <div class="has-text-centered mt-3">
+                <button type="submit" class="button is-primary">Create Post</button> 
+            </div>  
+        </div>
+    </div>
+</section>
+{% endblock %}

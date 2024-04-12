@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', TemplateView.as_view(template_name='base.html')),
+    path('blog/', include('example_blog.urls', namespace='blog')),
 ]
 
 if settings.DEBUG:
