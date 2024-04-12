@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 from configurations import Configuration, values
 
@@ -47,9 +48,14 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'project_admin.apps.ProjectAdminConfig',
         'crispy_forms',
         'crispy_bulma',
-        'project_admin.apps.ProjectAdminConfig'
+        'django_summernote',
+
+        # A blog set up with all the example functionality of
+        # this Django configuration.
+        # 'example_blog'
         ]
 
     MIDDLEWARE = [
@@ -158,6 +164,9 @@ class Dev(Configuration):
     CRISPY_ALLOWED_TEMPLATE_PACKS = ('bulma',)
     CRISPY_TEMPLATE_PACK = 'bulma'
 
+    # Media Config - for Summernote WYSIWYG editor
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 class Prod(Dev):
     DEBUG = False
