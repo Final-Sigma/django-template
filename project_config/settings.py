@@ -55,7 +55,7 @@ class Dev(Configuration):
 
         # A blog set up with all the example functionality of
         # this Django configuration.
-        # 'example_blog'
+        'example_blog',
         ]
 
     MIDDLEWARE = [
