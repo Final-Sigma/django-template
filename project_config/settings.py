@@ -63,7 +63,7 @@ class Dev(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
-    ROOT_URLCONF = 'project.urls'
+    ROOT_URLCONF = 'project_config.urls'
 
     TEMPLATES = [
         {
@@ -81,7 +81,7 @@ class Dev(Configuration):
         },
     ]
 
-    WSGI_APPLICATION = 'project.wsgi.application'
+    WSGI_APPLICATION = 'project_config.wsgi.application'
 
 
     # Database
@@ -130,7 +130,6 @@ class Dev(Configuration):
     STATIC_URL = 'static/'
 
     STATICFILES_DIRS = [
-            BASE_DIR / 'frontend/build',
             BASE_DIR / 'static',
     ]
 

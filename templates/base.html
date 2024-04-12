@@ -11,14 +11,14 @@
         <title>{% block title %}Final Sigma{% endblock %}</title>
         <meta name="description" content="{% block meta_description %}A website by Final Sigma{% endblock %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{# static 'bulma/css/bulma.css' #}{% static 'output.css' %}">
+        <link rel="stylesheet" href="{% static 'app.css' %}">
     </head>
     <body>
         
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <script defer type="module" src="{% static 'output.js' %}"></script>
+        <script defer type="module" src="{% static 'app.js' %}"></script>
         {# <script defer type="module" src="{% static 'controllers/navbar-burger_controller.js' %}"></script> #}
 
         {% block header %}{% include '_header.html' %}{% endblock %}

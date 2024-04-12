@@ -18,7 +18,7 @@
   },
   "scripts": {
     "init": "yarn install && yarn run build",
-    "build-css": "sass --load-path=node_modules static/main.scss static/output.css",
+    "build-css": "sass --load-path=node_modules assets/css/index.scss static/app.css",
     "build-js": "webpack --config webpack.config.js",
     "django-server": "./manage.py runserver",
     "start": "yarn run build-css --watch & yarn run build-js --watch & yarn run django-server",
