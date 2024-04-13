@@ -20,6 +20,9 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+# TODO: Add Sitemap - Follow this tutorial:
+#       https://learndjango.com/tutorials/django-sitemap-tutorial
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
