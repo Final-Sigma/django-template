@@ -6,6 +6,10 @@ from .models import BlogPost
 # TODO: Add 'last modified' datetime to BlogPost to allow sitemap
 #       to stay up to date with latest changes.
 
+# TODO: Add BlogPost.get_absolute_url() to model and follow
+#       this tutorial to build it correctly:
+#       https://learndjango.com/tutorials/django-sitemap-tutorial
+
 class BlogSitemap(Sitemap):
     changefreq = "never"
     priority = 0.5
