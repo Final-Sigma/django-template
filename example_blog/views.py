@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views.generic import RedirectView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
@@ -29,3 +30,9 @@ class PostsUpdate(UpdateView):
 class PostsDelete(DeleteView):
     model = Post
     success_url = reverse_lazy('blog:posts')
+
+def GeneralRedirect(pattern_name, permanent=False):
+    return RedirectView.as_view(
+        url=reverse_lazy(pattern_name),
+        permanent=permanent
+    )
