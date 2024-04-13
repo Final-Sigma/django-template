@@ -16,26 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.views.generic import TemplateView
-from django.contrib import sitemaps
-from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+
+# TODO: Add Sitemap - Follow this tutorial:
+#       https://learndjango.com/tutorials/django-sitemap-tutorial
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', TemplateView.as_view(template_name='base.html')),
     path('blog/', include('example_blog.urls', namespace='blog')),
-    path(
-        "sitemap.xml",
-        sitemap,
-        {"sitemaps": sitemaps},
-        name="django.contrib.sitemaps.views.sitemap",
-    )
 ]
-
-
 
 
 
