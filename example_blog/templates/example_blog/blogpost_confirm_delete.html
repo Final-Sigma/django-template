@@ -1,0 +1,17 @@
+{% extends 'example_blog/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form class="has-text-centered my-4" method="post"
+        action="{% url 'blog:delete_post' object.pk %}"
+    >
+        {% csrf_token %}
+        <p class="is-size-5">Are you sure you want to delete "{{ object }}"?</p>
+        {{ form|crispy }}
+        <p class="mt-6">
+            <a class="button is-info" href="{% url 'blog:post' object.pk %}">Go Back</a>
+            <input class="button is-danger" type="submit" value="Confirm">
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'example_blog/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="has-text-centered">
+        <h2 class="title is-size-2">All Posts</h2>
+        <a href="{% url 'blog:new_post' %}"><button class="button is-primary">New Post</button></a>
+    </div>
+    <div class="columns">
+        <div class="column is-8 is-offset-2 content">
+            <ul>
+                {% for object in object_list %}
+                    <li>
+                        <a href="{% url 'blog:post' object.pk %}">
+                            {{ object }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
