@@ -1,0 +1,29 @@
+{% extends 'example_blog/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<section class="section">
+    <div class="columns">
+        <div class="column is-6 is-offset-3">
+            <form 
+                method="post"
+                action="{% if object %}{% url 'blog:edit_post' object.pk %}{% else %}{% url 'blog:new_post' %}{% endif %}"
+            >
+            {% csrf_token %}
+            {{ form|crispy }}
+                <div class="has-text-centered mt-3">
+                    <input type="submit" class="button is-primary"
+                    value=
+                        {%if object %}
+                        "Update Post"
+                        {% else %}
+                        "Create Post"
+                        {% endif %}
+                    > 
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

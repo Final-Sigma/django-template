@@ -48,6 +48,8 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'django.contrib.sites',
+        'django.contrib.sitemaps',
         'project_admin.apps.ProjectAdminConfig',
         'crispy_forms',
         'crispy_bulma',
@@ -55,7 +57,7 @@ class Dev(Configuration):
 
         # A blog set up with all the example functionality of
         # this Django configuration.
-        # 'example_blog'
+        'example_blog',
         ]
 
     MIDDLEWARE = [
@@ -167,6 +169,8 @@ class Dev(Configuration):
     # Media Config - for Summernote WYSIWYG editor
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+    X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 class Prod(Dev):
     DEBUG = False
