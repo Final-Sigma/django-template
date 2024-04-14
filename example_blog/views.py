@@ -9,16 +9,11 @@ from .models import BlogPost as Post
 
 class PostsIndex(ListView):
     model = Post
+    paginate_by = 5
 
 class PostsCreate(CreateView):
-    # from FormMixin which FormView inherits.
-    # initial = {}
-    # form_class = None
-    # success_url = None
-    # prefix = None
     model = Post
     form_class = PostForm
-    # template_name = 'example_blog/blogpost_form.html'
 
 class PostsDetail(DetailView):
     model = Post
