@@ -59,7 +59,7 @@ With links that use redirects to take a user to a page hosted outside your domai
   {% csrf_token %}
   {{ form }}
   <button type="submit" data-turbo="false">
-    Go to Strip Checkout
+    Go to Stripe Checkout
   </button>
 </form>
 ```
