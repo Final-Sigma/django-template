@@ -9,6 +9,7 @@ from .models import BlogPost as Post
 
 class PostsIndex(ListView):
     model = Post
+    paginate_by = 5
 
 class PostsCreate(CreateView):
     # from FormMixin which FormView inherits.
