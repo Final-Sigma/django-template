@@ -36,7 +36,7 @@ This project utilizes [Bulma](https://bulma.io) as its CSS library. This templat
 
 To implement custom variables, modify the following in `assets/css/index.scss`:
 
-```sass
+```scss
 // assets/css/index.scss
 
 @use '../node_modules/bulma/sass' with (
@@ -66,17 +66,95 @@ With links that use redirects to take a user to a page hosted outside your domai
 
 The basics work out of the box (which is one reason I love Turbo), and additional documentation can be found in the [Turbo Handbook](https://turbo.hotwired.dev/).
 
-### Strada
+### Stimulus
 
-TODO: Write how to use Strada.
+This project uses [Stimulus]([django-debug-toolbar](https://pypi.org/project/django-debug-toolbar/)) to provide interactive components to the user interface. Stimulus controllers will be auto-detected in the `assets/js/controllers/` directory. A full tutorial can be found in the [Stiumulus Handbook](https://stimulus.hotwired.dev/handbook/origin).
 
-### Summernote
+### Summernote (WYSIWYG Editor)
 
-TODO: Write documentaiton on [django-summernote](https://github.com/summernote/django-summernote)
+This template includes the [Summernote](https://summernote.org/) WYSIWYG editor, implemented through the [django-summernote](https://github.com/summernote/django-summernote) package.
+
+You will find an example of its usage in how the included example blog handles the body of a blog post:
+
+```python
+# example_blog/models.py
+
+from django.db import models
+
+class BlogPost(models.Model):
+    title = models.CharField(
+        max_length=50
+    )
+    # ...
+```
+
+```python
+# example_blog/forms.py
+
+from django_summernote.widgets import SummernoteWidget
+from django.forms import ModelForm
+from .models import BlogPost as Post
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+        widgets = {
+            'body': SummernoteWidget() # <= Loads Summer Note when this
+        }                              #    form is called in a template. 
+```
+
+```python
+# example_blog/views.py
+
+from django.views.generic.edit import CreateView, UpdateView
+from .forms import PostForm
+from .models import BlogPost as Post
+
+# ...
+
+class PostsCreate(CreateView):
+    model = Post
+    form_class = PostForm      # <= Loads the above-mentioned form
+                               #    which includes the Summernote widget.
+class PostsUpdate(UpdateView):
+    model = Post
+    form_class = PostForm      # <= In both views.
+
+# ...
+```
+
+```django
+{# example_blog/templates/example_blog/blogpost_form.html #}
+
+{% extends 'example_blog/base.html' %}
+
+{% block content %}
+<form method="post"
+      action="{% if object %}{% url 'blog:edit_post' object.pk %}{% else %}{% url 'blog:new_post' %}{% endif %}"
+>
+{% csrf_token %}
+{{ form }} {# <= Will use the Summernote widget declared in blog_example/forms.py #}
+<input type="submit" class="button is-primary"
+value=
+    {%if object %}
+    "Update Post"
+    {% else %}
+    "Create Post"
+    {% endif %}
+> 
+</form>
+{% endblock %}
+
+{# Since this single template is responsible to produce #}
+{# the form for both creating a new blog post and       #}
+{# editing an existing one, there is logic to change    #}
+{# form action and button text accordingly.             #}
+```
 
 ### Crispy Forms
 
-TODO: Write documentation on [crispy forms](https://github.com/django-crispy-forms/django-crispy-forms) and [crispy bulma](https://github.com/ckrybus/crispy-bulma)
+Forms use the [crispy forms](https://github.com/django-crispy-forms/django-crispy-forms) package for styling and the [crispy bulma](https://github.com/ckrybus/crispy-bulma) template package. In the latest version, the crispy form helper is not working.
 
 ### Django Configurations
 
