@@ -6,11 +6,6 @@ from .views import PostsIndex, PostsCreate, PostsDetail, PostsUpdate, PostsDelet
 
 app_name = 'example_blog'
 
-info_dict = {
-    'queryset': BlogPost.objects.all(),
-    'date_field': 'updated_at',
-}
-
 urlpatterns = [
     path('', GeneralRedirect('blog:posts')),
 
@@ -19,9 +14,4 @@ urlpatterns = [
     path('posts/<pk>/',       PostsDetail.as_view(), name='post'),
     path('posts/<pk>/edit',   PostsUpdate.as_view(), name='edit_post'),
     path('posts/<pk>/delete', PostsDelete.as_view(), name='delete_post'),
-
-    path('sitemap.xml', sitemap, {'sitemaps': {
-            'recipes': GenericSitemap(info_dict)
-        }
-    }),
 ]
