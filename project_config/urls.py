@@ -19,6 +19,7 @@ from django.views.generic import TemplateView
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from .sitemaps import SitemapURL
 
 # TODO: Add Sitemap - Follow this tutorial:
 #       https://learndjango.com/tutorials/django-sitemap-tutorial
@@ -28,6 +29,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', TemplateView.as_view(template_name='base.html')),
     path('blog/', include('example_blog.urls', namespace='blog')),
+    SitemapURL(),
 ]
 
 
@@ -39,3 +41,4 @@ if settings.DEBUG:
         path('__debug__/', include(debug_toolbar.urls))
     )
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
