@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .sitemaps import SitemapURL
 
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 # TODO: Add Sitemap - Follow this tutorial:
 #       https://learndjango.com/tutorials/django-sitemap-tutorial
 
@@ -28,6 +32,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', TemplateView.as_view(template_name='base.html'), name='homepage'),
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('pages/', include(wagtail_urls)),
     path('blog/', include('example_blog.urls', namespace='blog')),
     SitemapURL(),
 ]

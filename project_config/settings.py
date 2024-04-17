@@ -168,9 +168,40 @@ class Dev(Configuration):
 
     # Media Config - for Summernote WYSIWYG editor
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
     X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+    # Wagtail CMS Settings
+
+    WAGTAIL_SITE_NAME = 'Django Template Wagtail'
+
+    WAGTAILADMIN_BASE_URL = 'http://localhost:8000'
+
+    WAGTAIL_CMS_APPS = [
+        'wagtail.contrib.forms',
+        'wagtail.contrib.redirects',
+        'wagtail.embeds',
+        'wagtail.sites',
+        'wagtail.users',
+        'wagtail.snippets',
+        'wagtail.documents',
+        'wagtail.images',
+        'wagtail.search',
+        'wagtail.admin',
+        'wagtail',
+
+        'modelcluster',
+        'taggit',
+    ]
+
+    WAGTAIL_CMS_MIDDLEWARE = [
+        'wagtail.contrib.redirects.middleware.RedirectMiddleware'
+    ]
+
+    INSTALLED_APPS += WAGTAIL_CMS_APPS
+
+    MIDDLEWARE += WAGTAIL_CMS_MIDDLEWARE
 
 class Prod(Dev):
     DEBUG = False
